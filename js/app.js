@@ -168,12 +168,7 @@ function crearTarjetaRestaurante(restaurante) {
 function renderizarLugares() {
   const contenedor = document.getElementById('tourist-spots-grid');
 
-  // Solo mostramos los que tienen nombre real (ignora los placeholders vacíos)
-  const lugaresReales = window.touristSpots.filter(function (lugar) {
-    return !lugar.id.startsWith('futuro');
-  });
-
-  lugaresReales.forEach(function (lugar) {
+  window.touristSpots.forEach(function (lugar) {
     const tarjeta = crearTarjetaLugar(lugar);
     contenedor.appendChild(tarjeta);
   });
@@ -183,11 +178,7 @@ function renderizarLugares() {
 function renderizarRestaurantes() {
   const contenedor = document.getElementById('restaurants-grid');
 
-  const restaurantesReales = window.recommendedRestaurants.filter(function (r) {
-    return !r.id.startsWith('futuro');
-  });
-
-  restaurantesReales.forEach(function (restaurante) {
+  window.recommendedRestaurants.forEach(function (restaurante) {
     const tarjeta = crearTarjetaRestaurante(restaurante);
     contenedor.appendChild(tarjeta);
   });
