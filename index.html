@@ -3,42 +3,337 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
+
+  <!-- SEO -->
   <title>Hotel Coronado | Elegancia en Barcelona</title>
-  <meta name="description" content="Elegancia, calma y autenticidad en el corazón de Sants-Montjuïc, Barcelona. Un refugio de lujo discreto diseñado para vivir Barcelona con otra mirada.">
-  <meta name="keywords" content="Hotel, Coronado, Barcelona, Sants-Montjuic, hotel boutique, alojamiento, lujo discreto, turismo Barcelona">
+  <meta name="description" content="Elegancia, calma y autenticidad en el corazón de Sants-Montjuïc, Barcelona.">
+  <meta name="keywords" content="Hotel, Coronado, Barcelona, Sants-Montjuic, hotel boutique, lujo discreto">
   <meta name="author" content="Hotel Coronado">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Hotel Coronado | Elegancia en Barcelona">
-  <meta property="og:description" content="Elegancia, calma y autenticidad en el corazón de Sants-Montjuïc, Barcelona.">
-  
-  <!-- Google Fonts -->
+  <!-- Fuentes de Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
-  <!-- Main Stylesheet -->
+  <!-- Hoja de estilos -->
   <link rel="stylesheet" href="css/styles.css">
-
-  <!-- React 18, React DOM 18 & Babel Standalone CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  
-  <!-- App Mounting Target -->
-  <div id="root"></div>
 
-  <!-- Scripts -->
-  <script type="text/babel" src="js/places.js"></script>
-  <script type="text/babel" src="js/app.js"></script>
+
+  <!-- ============================================================
+       HEADER / NAVEGACIÓN
+       ============================================================ -->
+  <header id="navbar" class="header header-transparent">
+    <div class="container nav-container">
+
+      <!-- Logo -->
+      <a href="#" class="logo" id="logo-link">
+        <span class="logo-title">CORONADO</span>
+        <span class="logo-subtitle">Barcelona</span>
+      </a>
+
+      <!-- Navegación escritorio -->
+      <nav class="nav-links">
+        <a href="#" class="nav-link">Inicio</a>
+        <a href="#about" class="nav-link">Quiénes Somos</a>
+        <a href="#location" class="nav-link">Ubicación</a>
+        <a href="#restaurants" class="nav-link">Restaurantes</a>
+        <a href="#footer" class="nav-link">Contacto</a>
+        <button class="btn btn-secondary btn-sm" id="btn-reservar-nav">Reservar</button>
+      </nav>
+
+      <!-- Botón menú móvil -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Menú móvil (oculto por defecto) -->
+    <nav class="mobile-nav" id="mobile-nav" style="display: none;">
+      <a href="#" class="mobile-nav-link">Inicio</a>
+      <a href="#about" class="mobile-nav-link">Quiénes Somos</a>
+      <a href="#location" class="mobile-nav-link">Ubicación</a>
+      <a href="#restaurants" class="mobile-nav-link">Restaurantes</a>
+      <a href="#footer" class="mobile-nav-link">Contacto</a>
+      <button class="btn btn-primary btn-md" style="margin-top: 1rem;">Reservar</button>
+    </nav>
+  </header>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+
+    <!-- Imagen de fondo: reemplaza "images/hero.jpg" con tu foto -->
+    <div class="hero-bg image-placeholder">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/>
+        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+      </svg>
+      <span class="image-placeholder-text">Imagen de fondo del Hero<br>(añade tu foto en images/hero.jpg)</span>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Contenido del hero -->
+    <div class="hero-content">
+      <span class="hero-tagline">Hotel Coronado</span>
+      <h1 class="hero-title">Barcelona con otra mirada</h1>
+      <p class="hero-desc">Elegancia, calma y autenticidad en el corazón de Sants-Montjuïc</p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary btn-lg" id="btn-reservar-hero">Consultar disponibilidad</button>
+        <button class="btn btn-outline btn-lg" id="btn-descubrir" style="color:white; border-color:white;">
+          Descubrir la ubicación
+        </button>
+      </div>
+    </div>
+
+    <!-- Flecha de scroll -->
+    <div class="hero-scroll-indicator">
+      <span class="hero-scroll-text">Explorar</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       QUIÉNES SOMOS
+       ============================================================ -->
+  <section id="about" class="reveal-item py-24">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Texto -->
+        <div>
+          <div class="section-heading">
+            <h2 class="section-title">Un refugio de calma</h2>
+            <p class="section-subtitle">Hospitalidad, diseño cuidado y una conexión profunda con la auténtica Barcelona.</p>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="about-text">
+            <p>Hotel Coronado nace de la voluntad de ofrecer un espacio donde el lujo reside en la tranquilidad, los detalles precisos y el trato humano.</p>
+            <p>Ubicados en el vibrante y genuino barrio de Sants-Montjuïc, proponemos una experiencia que combina la sofisticación de un hotel boutique premium europeo con el carácter cálido e inconfundible de Barcelona.</p>
+            <p>Cada espacio ha sido diseñado para invitar al reposo tras un día descubriendo la ciudad. Materiales nobles, tonos serenos y un equipo dedicado a hacer de su estancia un recuerdo perdurable.</p>
+          </div>
+        </div>
+
+        <!-- Imagen: reemplaza con tu foto -->
+        <div class="about-image-wrapper">
+          <div class="image-placeholder" style="width:100%; height:100%;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/>
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+            </svg>
+            <span class="image-placeholder-text">Interior del hotel<br>(añade tu foto en images/about.jpg)</span>
+          </div>
+          <div class="about-image-deco"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       UBICACIÓN + MAPA
+       ============================================================ -->
+  <section id="location" class="reveal-item py-24 bg-soft-cream">
+    <div class="container">
+      <div class="location-grid">
+
+        <!-- Texto de ubicación -->
+        <div>
+          <div class="section-heading">
+            <h2 class="section-title">Ubicación</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="location-address">
+            <h3>Carrer Nou de la Rambla, 134</h3>
+            <p>Sants-Montjuïc, 08004 Barcelona</p>
+          </div>
+
+          <div class="about-text">
+            <p>Una ubicación estratégica en uno de los barrios más auténticos y mejor conectados de la ciudad.</p>
+            <p>A los pies de la montaña de Montjuïc, rodeado de cultura, gastronomía y vida local, pero a un paso del centro histórico, el puerto y La Rambla.</p>
+            <p>El entorno perfecto para explorar Barcelona desde un punto de partida elegante, seguro y tranquilo.</p>
+          </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="map-container">
+          <div class="interactive-map">
+
+            <!-- El iframe del mapa se actualiza dinámicamente con JS -->
+            <div style="flex-grow: 1; position: relative;">
+              <iframe
+                id="google-map"
+                width="100%"
+                height="100%"
+                style="border: 0; position: absolute; inset: 0;"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=41.3739,2.1678&hl=es&z=15&output=embed">
+              </iframe>
+            </div>
+
+            <!-- Barra inferior del mapa -->
+            <div class="map-controls">
+              <div class="map-legend">
+                <!-- Este texto cambia con JS al seleccionar un lugar -->
+                <span id="map-label" style="color: var(--color-soft-black); font-size: 0.875rem;">Hotel Coronado</span>
+              </div>
+              <button class="btn btn-primary btn-sm" id="btn-open-maps" style="display: flex; gap: 0.5rem; align-items: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                  <line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/>
+                </svg>
+                Ver Hotel en Maps
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.7;">
+                  <path d="M15 3h6v6"/><path d="M10 14 21 3"/>
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                </svg>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       LUGARES DE INTERÉS
+       Las tarjetas se generan automáticamente desde js/places.js
+       ============================================================ -->
+  <section id="spots" class="reveal-item py-24">
+    <div class="container">
+      <div class="section-heading section-heading-centered text-center">
+        <h2 class="section-title">Descubra Barcelona</h2>
+        <p class="section-subtitle">Lugares emblemáticos a pocos minutos de nuestra puerta.</p>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Las tarjetas se insertan aquí con JavaScript -->
+      <div class="cards-grid" id="tourist-spots-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       RESTAURANTES RECOMENDADOS
+       Las tarjetas se generan automáticamente desde js/places.js
+       ============================================================ -->
+  <section id="restaurants" class="reveal-item py-24 bg-soft-cream" style="border-top: 1px solid rgba(196,162,101,0.2);">
+    <div class="container">
+      <div class="section-heading section-heading-centered text-center">
+        <h2 class="section-title">Gastronomía Recomendada</h2>
+        <p class="section-subtitle">Una cuidada selección de restaurantes para completar su experiencia en la ciudad.</p>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Las tarjetas se insertan aquí con JavaScript -->
+      <div class="cards-grid" id="restaurants-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer" class="footer">
+    <div class="container footer-grid">
+
+      <!-- Marca -->
+      <div class="footer-brand">
+        <h2>Hotel Coronado</h2>
+        <p class="footer-brand-sub">Barcelona</p>
+        <p class="footer-brand-desc">Elegancia, calma y autenticidad en el corazón de Sants-Montjuïc. Un refugio de lujo discreto diseñado para vivir Barcelona con otra mirada.</p>
+      </div>
+
+      <!-- Contacto -->
+      <div>
+        <h3 class="footer-col-title">Contacto</h3>
+        <ul class="footer-list">
+          <li>Carrer Nou de la Rambla, 134</li>
+          <li>Sants-Montjuïc, 08004 Barcelona</li>
+          <li>+34 930 123 456</li>
+          <li>reservas@hotelcoronado.es</li>
+        </ul>
+      </div>
+
+      <!-- Explorar -->
+      <div>
+        <h3 class="footer-col-title">Explorar</h3>
+        <ul class="footer-list">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#about">Quiénes Somos</a></li>
+          <li><a href="#location">Ubicación</a></li>
+          <li><a href="#restaurants">Restaurantes</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div>
+        <h3 class="footer-col-title">Síguenos</h3>
+        <div class="footer-social-flex">
+          <a href="#" class="footer-social-icon" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="20" height="20" x="2" y="2" rx="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" class="footer-social-icon" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="footer-social-icon" aria-label="Twitter / X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Barra de copyright -->
+    <div class="container footer-bottom">
+      <p id="copyright-year"></p>
+      <div class="footer-bottom-links">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos Legales</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       Primero los datos, luego la lógica
+       ============================================================ -->
+  <script src="js/places.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 </html>
